@@ -30,7 +30,7 @@ public class TextEditor extends JFrame implements ActionListener{
 		textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setFont(new Font("Arial",Font.PLAIN,50));
+		textArea.setFont(new Font("Arial",Font.PLAIN,20));
 		
 		scrollPane = new JScrollPane(textArea);
 		scrollPane.setPreferredSize(new Dimension(450,450));
@@ -43,11 +43,14 @@ public class TextEditor extends JFrame implements ActionListener{
 
 			@Override
 			public void stateChanged(ChangeEvent e) {
-				// TODO Auto-generated method stub
+			
+				textArea.setFont(new Font(textArea.getFont().getFamily(),Font.PLAIN,(int) fontSizeSpinner.getValue()));
 				
 			}
 			
 		});
+		
+		this.add(fontSizeSpinner);
 		this.add(scrollPane);
 		this.setVisible(true);
 	}
