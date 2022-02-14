@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 public class TextEditor extends JFrame implements ActionListener{
 	
@@ -23,14 +24,16 @@ public class TextEditor extends JFrame implements ActionListener{
 		
 		
 		textArea = new JTextArea();
-		textArea.setPreferredSize(new Dimension(450,450));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setFont(new Font("Arial",Font.PLAIN,20));
 		
 		scrollPane = new JScrollPane(textArea);
+		scrollPane.setPreferredSize(new Dimension(450,450));
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		this.add(textArea);
+		
+		this.add(scrollPane);
 		this.setVisible(true);
 	}
 
