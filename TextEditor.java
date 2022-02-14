@@ -9,6 +9,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class TextEditor extends JFrame implements ActionListener{
 	
@@ -35,8 +37,17 @@ public class TextEditor extends JFrame implements ActionListener{
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		fontSizeSpinner = new JSpinner();
-		
-		
+		fontSizeSpinner.setPreferredSize(new Dimension(50,25));
+		fontSizeSpinner.setValue(20);
+		fontSizeSpinner.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		this.add(scrollPane);
 		this.setVisible(true);
 	}
