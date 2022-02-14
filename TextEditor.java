@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -5,6 +6,8 @@ import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -21,6 +24,9 @@ public class TextEditor extends JFrame implements ActionListener{
 	JScrollPane scrollPane;
 	JLabel fontLabel;
 	JSpinner fontSizeSpinner;
+	JButton fontColorButton;
+	
+	
 	
 	TextEditor(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,16 +62,29 @@ public class TextEditor extends JFrame implements ActionListener{
 			
 		});
 		
+		fontColorButton = new JButton("Color");
+		fontColorButton.addActionListener(this);
+		
+		
 		this.add(fontLabel);
 		this.add(fontSizeSpinner);
+		this.add(fontColorButton);
 		this.add(scrollPane);
 		this.setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	
 		
+		if(e.getSource() == fontColorButton) {
+			JColorChooser colorChooser = new JColorChooser();
+			
+			Color color = colorChooser.showDialog(null,"choose color",Color.black);
+			
+			textArea.setForeground(color);
+			
+		}
 	}
 
 }
