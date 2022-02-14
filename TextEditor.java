@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
@@ -14,6 +15,7 @@ public class TextEditor extends JFrame implements ActionListener{
 	
 	JTextArea textArea;
 	JScrollPane scrollPane;
+	JSpinner fontSizeSpinner;
 	
 	TextEditor(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,11 +28,13 @@ public class TextEditor extends JFrame implements ActionListener{
 		textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setFont(new Font("Arial",Font.PLAIN,20));
+		textArea.setFont(new Font("Arial",Font.PLAIN,50));
 		
 		scrollPane = new JScrollPane(textArea);
 		scrollPane.setPreferredSize(new Dimension(450,450));
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		fontSizeSpinner = new JSpinner();
 		
 		
 		this.add(scrollPane);
