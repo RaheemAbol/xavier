@@ -95,6 +95,12 @@ public class TextEditor extends JFrame implements ActionListener{
 		saveItem = new JMenuItem("Save");
 		exitItem = new JMenuItem("Exit");
 		
+		
+		openItem.addActionListener(this);
+		saveItem.addActionListener(this);
+		exitItem.addActionListener(this);
+		
+		
 		fileMenu.add(openItem);
 		fileMenu.add(saveItem);
 		fileMenu.add(exitItem);
