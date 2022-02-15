@@ -12,6 +12,9 @@ import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
@@ -29,6 +32,12 @@ public class TextEditor extends JFrame implements ActionListener{
 	JButton fontColorButton;
 	JComboBox fontBox;
 	
+	
+	JMenuBar menuBar;
+	JMenu fileMenu;
+	JMenuItem openItem;
+	JMenuItem saveItem;
+	JMenuItem exitItem;
 	
 	
 	TextEditor(){
@@ -76,6 +85,23 @@ public class TextEditor extends JFrame implements ActionListener{
 		fontBox.addActionListener(this);
 		fontBox.setSelectedItem("Ariel");
 		
+		//  Menu bar 
+	
+
+		
+		menuBar = new JMenuBar();
+		fileMenu = new JMenu("File");
+		openItem = new JMenuItem("Open");
+		saveItem = new JMenuItem("Save");
+		exitItem = new JMenuItem("Exit");
+		
+		fileMenu.add(openItem);
+		fileMenu.add(saveItem);
+		fileMenu.add(exitItem);
+		menuBar.add(fileMenu);
+		
+		// Menu bar 
+		this.setJMenuBar(menuBar);
 		this.add(fontLabel);
 		this.add(fontSizeSpinner);
 		this.add(fontColorButton);
